@@ -1,0 +1,30 @@
+# Node modules
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Expo / React Native
+.expo/
+.expo-shared/
+*.expo.js
+*.expo.json
+*.log
+*.p12
+*.jks
+*.keystore
+
+# Build / output folders
+build/
+dist/
+android/
+ios/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE / OS files
+.vscode/
+.idea/
+.DS_Store
