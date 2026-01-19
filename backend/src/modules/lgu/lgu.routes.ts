@@ -2,7 +2,6 @@ import express from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import LGU from './lgu.model.ts';
-
 const router = express.Router();
 
 // Login route
