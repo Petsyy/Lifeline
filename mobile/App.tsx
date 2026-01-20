@@ -2,9 +2,10 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
+import './global.css';
 
 // Import your screens
-import Login from './src/app/auth/Login';
+import Login from './src/auth/Login';
 
 // Define your route names here for TypeScript checking (Optional but recommended)
 export type RootStackParamList = {

@@ -1,25 +1,18 @@
-const { getDefaultConfig } = require('expo/metro-config');
+const { getDefaultConfig } = require("expo/metro-config");
+const { withNativeWind } = require('nativewind/metro');
 const path = require('path');
 
-
 const projectRoot = __dirname;
-const workspaceRoot = path.resolve(projectRoot, '..');
-
 const config = getDefaultConfig(projectRoot);
 
-
-config.watchFolders = [workspaceRoot];
-
+// Limit Metro to the mobile package only (no parent node_modules)
+config.watchFolders = [projectRoot];
 
 config.resolver.nodeModulesPaths = [
-  path.resolve(projectRoot, 'node_modules'),
-  path.resolve(workspaceRoot, 'node_modules'),
+  path.resolve(projectRoot, 'node_modules')
 ];
 
-config.resolver.extraNodeModules = {
-  ...config.resolver.extraNodeModules,
-  'react': path.resolve(workspaceRoot, 'node_modules/react'),
-    'react-native': path.resolve(projectRoot, 'node_modules/react-native'),
-};
+// Prevent Metro from walking up to parent node_modules
+config.resolver.disableHierarchicalLookup = true;
 
-module.exports = config;
+module.exports = withNativeWind(config, { input: './global.css' })

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, SafeAreaView } from 'react-native';
-import { Stack, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 // Importing Lucide Icons
 import { ShieldCheck, Eye, EyeOff } from 'lucide-react-native';
+import type { RootStackParamList } from '../../App';
 
 const Login = () => {
-  const router = useRouter();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -18,7 +19,6 @@ const Login = () => {
   return (
     <SafeAreaView className="flex-1 bg-[#0f172a]">
       <StatusBar style="light" />
-      <Stack.Screen options={{ headerShown: false }} />
 
       <View className="flex-1 justify-center px-6">
         {/* Logo Section */}
@@ -111,7 +111,7 @@ const Login = () => {
         {/* Footer */}
         <View className="flex-row justify-center mt-12">
           <Text className="text-slate-400">Don't have an account? </Text>
-          <TouchableOpacity onPress={() => router.push('/auth/signup' as any)}>
+          <TouchableOpacity onPress={() => navigation.navigate('Home')}>
             <Text className="text-blue-500 font-bold">Sign up</Text>
           </TouchableOpacity>
         </View>

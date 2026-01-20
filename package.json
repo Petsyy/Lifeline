@@ -1,22 +1,10 @@
 {
   "name": "lifeline",
   "private": true,
-  "workspaces": [
-    "backend",
-    "web",
-    "mobile"
-  ],
   "scripts": {
-    "dev:backend": "npm run dev --workspace backend",
-    "dev:web": "npm run dev --workspace web",
-    "dev:mobile": "npm run start --workspace mobile",
-    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:web\""
-  },
-  "overrides": {
-    "react": "19.1.0",
-    "react-dom": "19.1.0"
-  },
-  "devDependencies": {
-    "concurrently": "^8.2.2"
+    "mobile:start": "npm --prefix mobile start",
+    "mobile:android": "npm --prefix mobile run android",
+    "mobile:ios": "npm --prefix mobile run ios",
+    "mobile:web": "npm --prefix mobile run web"
   }
 }
